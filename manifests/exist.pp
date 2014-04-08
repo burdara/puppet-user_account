@@ -1,10 +1,10 @@
-class user_account::exist ( $users ) {
+class user_account::exist ( $users, $groups = [] ) {
 
     define user_exists ($user = $title) {
         user { $user:
             shell       => "/bin/bash",
             managehome  => true,
-            groups      => ['users'],
+            groups      => ['users', $groups].flatten,
         }
     }
 
