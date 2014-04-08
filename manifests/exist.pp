@@ -4,7 +4,7 @@ class user_account::exist ( $users, $groups = [] ) {
         user { $user:
             shell       => "/bin/bash",
             managehome  => true,
-            groups      => ['users', $grps].flatten,
+            groups      => flatten(['users', $grps]),
         }
     }
 
